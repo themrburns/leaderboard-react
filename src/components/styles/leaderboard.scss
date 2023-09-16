@@ -174,7 +174,7 @@ hr {
 .themeSwitch {
     display: grid;
     place-self: center;
-    position: absolute;
+    position: fixed;
     background-color: #fff;
     border-radius: 100%;
     cursor: pointer;
