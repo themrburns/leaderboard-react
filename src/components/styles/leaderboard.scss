@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap');
+@import './variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body:has(#dark) {
+    background-color: $dark;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#light {
+    background-color: $light;
+    color: $dark;
+}
+
+#dark {
+    background-color: $dark;
+    color: $light;
+}
+
+hr {
+    border: 1px solid $dark;
+    #dark & {
+        border-color: $light;
+    }
+}
+
+.main {
+    font-family: 'Roboto', sans-serif;
+    
+    transition: .3s ease-in;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+}
+
+.board {
+    width: min(1000px,95vw);
+    text-align: center;
+    .leaderboard {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+    .duration {
+        margin-top: 1.25rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        & > button {
+            color: inherit;
+            border: 2px solid $light;
+            #light & {
+                border: 1px solid $dark;
+            }
+            
+            padding: .75rem 2rem;
+            border-radius: 50px;
+            background-color: transparent;
+            cursor: pointer;
+            transition: .2s ease-in;
+            &:hover {
+                background-color: $light;
+                color: $dark;
+            }
+            &.selected {
+                background-color: $light;
+                color: $dark;
+                &:hover {
+                    opacity: .5;
+                }
+            }
+            #light &:hover {
+                background-color: $dark;
+                color: $light;
+            }
+            #light &.selected {
+                background-color: $dark;
+                color: $light;
+            }
+        }
+    }
+}
+
+.active {
+    background-color: $dark;
+    color: $light;
+}   
+
+.profile {
+    /* display: flex; */
+    width: 100%;
+    margin-top: 3rem;
+    .flex {
+        width: 100%;
+        border-radius: 1rem;
+        display: flex;
+        padding: 0.5rem 0;
+        justify-content: space-between;
+        gap: 1rem;
+        text-align: left;
+        margin-bottom: 1rem;
+        &:nth-child(1) {
+            position: relative;
+            background-color: $gold;
+            &::before {
+                content: '🏆';
+                position: absolute;
+                font-size: 74px;
+                margin-left: -100px;
+                margin-top: -16px;
+            }
+        }
+        &:nth-child(2) {background-color: $silver;}
+        &:nth-child(3) {background-color: $bronze;}
+
+        box-shadow: 1px 4px 22px -10px rgba(0,0,0,0.2);
+        border: 1px solid $border-gray;
+
+        .item, .item > * {
+            // &:nth-child(1) {
+            //     flex: 2;
+            // }
+            display: flex;
+            align-items: center;
+        }
+        .score {
+            margin-right: 1rem;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-left: 0.5rem;
+        }
+        .info {
+            padding: 1rem;
+            .name {
+                font-size: 1.25rem;
+                font-weight:600;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1190px) {
+    .profile .flex:nth-child(1)::before {
+        content: '🏆';
+        position: absolute;
+        font-size: 2.5rem;
+        
+        transform: translate(80px,-20px);
+        
+    }
+}
+
+#willUnmount {
+    opacity: 0;
+}
+
+.themeSwitch {
+    display: grid;
+    place-self: center;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    border: none;
+    bottom: 1rem;
+    right: 1rem;
+    height: 50px;
+    width: 50px;
+    transition: .3s ease-in;
+    #dark & {
+        transform: rotate(180deg);
+    }
+}
+
+
+  
