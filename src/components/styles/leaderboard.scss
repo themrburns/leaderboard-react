@@ -6,7 +6,8 @@
     padding: 0;
 }
 
-body:has(#dark) {
+body {
+    transition: .3s ease-in;
     background-color: $light;
     color: $dark;
     &:has(#dark) {
@@ -33,8 +34,6 @@ hr {
 
 .main {
     font-family: 'Roboto', sans-serif;
-    
-    transition: .3s ease-in;
     margin-inline: auto;
     display: flex;
     justify-content: center;
@@ -43,7 +42,7 @@ hr {
 }
 
 .board {
-    width: min(1000px,95vw);
+    width: min(1000px,93vw);
     text-align: center;
     .leaderboard {
         margin-top: 3rem;
@@ -58,7 +57,7 @@ hr {
             color: inherit;
             border: 2px solid $light;
             #light & {
-                border: 1px solid $dark;
+                border: 2px solid $dark;
             }
             
             padding: .75rem 2rem;
@@ -77,10 +76,7 @@ hr {
                     opacity: .5;
                 }
             }
-            #light &:hover {
-                background-color: $dark;
-                color: $light;
-            }
+            #light &:hover,
             #light &.selected {
                 background-color: $dark;
                 color: $light;
@@ -89,13 +85,8 @@ hr {
     }
 }
 
-.active {
-    background-color: $dark;
-    color: $light;
-}   
 
 .profile {
-    /* display: flex; */
     width: 100%;
     margin-top: 3rem;
     .flex {
@@ -122,12 +113,10 @@ hr {
         &:nth-child(3) {background-color: $bronze;}
 
         box-shadow: 1px 4px 22px -10px rgba(0,0,0,0.2);
-        border: 1px solid $border-gray;
+        border: 2px solid $border-gray;
 
         .item, .item > * {
-            // &:nth-child(1) {
-            //     flex: 2;
-            // }
+
             display: flex;
             align-items: center;
         }
