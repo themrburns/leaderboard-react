@@ -7,7 +7,12 @@
 }
 
 body:has(#dark) {
-    background-color: $dark;
+    background-color: $light;
+    color: $dark;
+    &:has(#dark) {
+        background-color: $dark;
+        color: $light;
+    }    
 }
 
 #root {
@@ -18,15 +23,6 @@ body:has(#dark) {
     overflow-x: hidden;
 }
 
-#light {
-    background-color: $light;
-    color: $dark;
-}
-
-#dark {
-    background-color: $dark;
-    color: $light;
-}
 
 hr {
     border: 1px solid $dark;
@@ -167,10 +163,6 @@ hr {
     }
 }
 
-#willUnmount {
-    opacity: 0;
-}
-
 .themeSwitch {
     display: grid;
     place-self: center;
@@ -179,7 +171,7 @@ hr {
     border-radius: 100%;
     cursor: pointer;
     border: none;
-    bottom: 1rem;
+    top: 1rem;
     right: 1rem;
     height: 50px;
     width: 50px;
@@ -187,7 +179,15 @@ hr {
     #dark & {
         transform: rotate(180deg);
     }
+    
 }
 
-
-  
+@media only screen and (max-width: 768px) {
+    .board {
+        margin-bottom: 3rem;
+    }
+    .themeSwitch {
+        height: 30px;
+        width: 30px;
+    }
+}
